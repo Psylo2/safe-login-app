@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/front/css/style.css">
+    <title>P&K Base</title>
+</head>
+<body class="body">
+<div class="header__bottom">
+    <div class="container">
+        <ul class="menu-categories">
+            <li class="menu-categories__item">
+                <a href="{{ url_for('home') }}" class="menu-categories__link">Home</a>
+            </li>
+            <li class="menu-categories__item">
+                <a href="{{ url_for('users.login_get') }}" class="menu-categories__link">Login</a>
+            </li>
+            {% if session['name_email'] %}
+                <li class="menu-categories__item">
+                    <a href="{{ url_for('users.logout') }}" class="menu-categories__link">Logout </a>
+                </li>
+            {% else %}
+                <li class="menu-categories__item">
+                    <a href="{{ url_for('users.register_get') }}" class="menu-categories__link">Register</a>
+                </li>
+            {% endif %}
+            {% if session['name_email'] == config.ADMIN %}
+                <li class="menu-categories__item">
+                    <a href="{{ url_for('admin.menu_get') }}" class="menu-categories__link">Admin's Menu</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="mt-3">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    {% include "footer.html" %}
+</div>
+</body>
+</html>

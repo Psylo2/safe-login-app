@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<body class="body">
+<div class="wrapper">
+  <div class="carousel carousel-center">
+
+
+    <input id="carousel__radio1" class="carousel__radio1 carousel__radio" type="radio" name="images" checked/>
+    <input id="carousel__radio2" class="carousel__radio2 carousel__radio" type="radio" name="images" />
+    <input id="carousel__radio3" class="carousel__radio3 carousel__radio" type="radio" name="images" />
+    <input id="carousel__radio4" class="carousel__radio4 carousel__radio" type="radio" name="images" />
+
+    <div class="slide_img_1 slide_img">
+
+        <img class="slide_img__content popup-item" src="../static/front/res/img/tripelfiber_hp_1920x645-min.jpg" >
+          <label class="slide_img__prev" for="carousel__radio4"><span class="slide_img__col slide_img__prev-triangle"></span></label>
+          <label class="slide_img__next" for="carousel__radio2"><span class="slide_img__col slide_img__next-triangle"></span></label>
+
+    </div>
+
+    <div class="slide_img_2 slide_img">
+        <img class="slide_img__content popup-item" src="../static/front/res/img/newbusweb-min.jpg " >
+          <label class="slide_img__prev" for="carousel__radio1"><span class="slide_img__col slide_img__prev-triangle"></span></label>
+          <label class="slide_img__next" for="carousel__radio3"><span class="slide_img__col slide_img__next-triangle"></span></label>
+
+    </div>
+
+    <div class="slide_img_3 slide_img">
+        <img class="slide_img__content popup-item" src="../static/front/res/img/kampin-sivim_1920x645.jpg">
+          <label class="slide_img__prev" for="carousel__radio2"><span class=" slide_img__col slide_img__prev-triangle"></span></label>
+          <label class="slide_img__next" for="carousel__radio4"><span class="slide_img__col slide_img__next-triangle"></span></label>
+    </div>
+
+
+    <div class="slide_img_4 slide_img">
+        <img class="slide_img__content popup-item" src="../static/front/res/img/5g-web.jpg">
+          <label class="slide_img__prev" for="carousel__radio3"><span class="slide_img__col slide_img__prev-triangle"></span></label>
+          <label class="slide_img__next" for="carousel__radio1"><span class="slide_img__col slide_img__next-triangle"></span></label>
+
+    </div>
+
+    <div class="slide__nav">
+      <label for="carousel__radio1" class="dots dot1" id="dot1"></label>
+      <label for="carousel__radio2" class="dots dot2" id="dot2"></label>
+      <label for="carousel__radio3" class="dots dot3" id="dot3"></label>
+      <label for="carousel__radio4" class="dots dot4" id="dot4"></label>
+    </div>
+
+  </div>
+  <div  id="popup" class="popup">
+    <div class="popup__body">
+      <div class="popup__content popup__content_image">
+        <a href="#" class="popup__close close-popup">X</a>
+        <div class="popup__image">
+          <img class="popup__image-content" src="img/GOkP8onbuyjGmN9Rc8Que5mw21CdSw6OuXpAKUuE6-4.webp" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="..\..\static\front\js\main.js"></script>
+{#footer#}
+</body>
+
+{% endblock %}

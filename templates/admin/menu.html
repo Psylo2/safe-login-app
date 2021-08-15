@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if session['name_email'] == config.ADMIN %}
+        <body>
+        <div class="form-menu">
+            <form class="contactus contactus--decor contactus--facebook" name="MenuForm">
+                <button class="contactus__inner-item button button--bottom" type="submit"
+                        formaction="{{ url_for('admin.password_conf_get') }}">
+                    Change Password Configuration
+                </button>
+                <button class="contactus__inner-item button button--bottom" type="submit"
+                        formaction="{{ url_for('admin.all_users_get') }}">
+                    Watch User's List
+                </button>
+
+            </form>
+        </div>
+        </body>
+    {% endif %}
+{% endblock %}

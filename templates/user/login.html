@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <body class="body">
+    <div class="form-wrapper">
+        <form class="contactus contactus--decor contactus--facebook" name="loginForm" method="POST"
+              action="{{ url_for('users.login_get') }}">
+            {{ form.csrf_token }}
+
+            {{ form.name_email }}
+            {% if form.name_email.errors %}
+                <div class='alert alert-danger'>
+                    {% for error in form.name_email.errors %}
+                        <span class='mr-1'>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {{ form.password }}
+            {% if form.password.errors %}
+                <div class='alert alert-danger'>
+                    {% for error in form.password.errors %}
+                        <span class='mr-1'>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <input class="contactus__inner-item contactus__inner-submit" type="submit" value="Submit"
+                   name="btn" id="submitForm">
+
+            <button class="contactus__inner-item button" type="submit"
+                    formaction="{{ url_for('users.change_password_get') }}">
+                Change password
+            </button>
+
+        </form>
+    </div>
+    </body>
+{% endblock %}
