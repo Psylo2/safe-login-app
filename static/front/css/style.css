@@ -70,61 +70,10 @@ p {
   margin: 0;
 }
 
-@font-face {
-  font-family: "Roboto";
-  src: url("/fonts/Roboto/Roboto-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: "SFProDisplay-Regular", sans-serif;
-  src: url(/fonts/SFpro/SFProDisplay-Regular.woff2) format("woff2"), url(/fonts/SFpro/SFProDisplay-Regular.woff) format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "SFProDisplay-Medium", sans-serif;
-  src: url(/fonts/SFpro/SFProDisplay-Medium.woff2) format("woff2"), url(/fonts/SFpro/SFProDisplay-Medium.woff) format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "SFProDisplay-Semibold", sans-serif;
-  src: url(/fonts/SFpro/SFProDisplay-Semibold.woff2) format("woff2"), url(/fonts/SFpro/SFProDisplay-Semibold.woff) format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "SFProDisplay-Bold", sans-serif;
-  src: url(/fonts/SFpro/SFProDisplay-Bold.woff2) format("woff2"), url(/fonts/SFpro/SFProDisplay-Bold.woff) format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Barlow-regular", sans-serif;
-  src: url(/fonts/Barlow/Barlow-Regular.ttf) format("ttf");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Barlow-Bold", sans-serif;
-  src: url(/fonts/Barlow/Barlow-Bold.ttf) format("ttf");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-html {
-  font-family: "Roboto", sans-serif;
-}
+
 
 body {
   color: #2f3035;
-  font-family: "SFProDisplay-Regular", sans-serif;
   font-size: 20px;
   line-height: 24px;
   font-weight: 400;
@@ -170,7 +119,6 @@ body {
 }
 
 .menu-categories__link:hover {
-  font-family: "SFProDisplay-Semibold", sans-serif;
   color: black;
 }
 
@@ -255,7 +203,6 @@ align-items: center;
   line-height: 40px;
   border-width: 0;
   border-radius: 20px;
-  font-family: "Roboto", sans-serif;
 }
 .contactus__inner-submit {
   margin-top: 45px;
@@ -270,7 +217,6 @@ align-items: center;
 }
 .contactus__inner-header {
   margin-top: 0;
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 24px;
   color: #707981;
@@ -294,7 +240,6 @@ align-items: center;
   line-height: 17px;
   text-transform: uppercase;
   color: #fff;
-  font-family: "SFProDisplay-Bold", sans-serif;
   background: #1c62cd;
   border-radius: 3px;
   padding: 10px 25px 10px;
@@ -571,7 +516,6 @@ html{
   font-size: 11px;
   line-height: 13px;
   letter-spacing: 0.12em;
-  font-family: "SFProDisplay-Semibold", sans-serif;
 }
 .footer .footer-form {
   display: flex;
@@ -695,7 +639,6 @@ html{
   }
   .footer__topdrop::after {
     content: "";
-    background-image: url(../img/catalog/aside/arrowDown.svg);
     position: absolute;
     right: 0;
     top: 7px;
