@@ -5,11 +5,11 @@ from models.password import Password
 
 
 class LoginForm(FlaskForm):
-    name_email = StringField('Username/Email',
+    name_email = StringField('Username',
                              render_kw={"class": "contactus__inner-item contactus__inner-username data",
                                         "type": "text",
                                         "autocomplete": "on",
-                                        "placeholder": "Username/Email"})
+                                        "placeholder": "Username"})
 
     def validate_name_email(self, field):
         email_matcher = re.compile(r"^[\w-]+@([\w]+\.)+[\w]+[\.+A-Za-z{2,}]+$")
