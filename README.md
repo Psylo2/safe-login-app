@@ -1,6 +1,6 @@
 # Safe Register & Login Administration
 
-__Unsafe mode for Demonstration.__
+__Safe mode for Demonstration.__
 
 Build with:
 
@@ -10,7 +10,9 @@ __FRONTEND:__ _JS, HTML & CSS_
 
 __INTEGRATIONS:__ _Jinja2_
 
-Deployed over Docker, inorder to contain a safety lab environment
+Deployed over Docker, inorder to contain a safety lab environment\
+
+_PLEASE TAKE NOTICE:_ __runs only with Chrome,Modzilla and Explorer.__ 
 
 ## Endpoints
 
@@ -51,26 +53,25 @@ $ curl -X POST -F 'username=Hacker' -F 'email=yougot@HACKED.com'
 -F 'password=AAaa1212@!12' -F 're_password=AAaa1212@!12' 
 http://127.0.0.1:5000/users/register
 ````
-\
 __Result of attack:__\
-![HackerRegistrationDB](https://user-images.githubusercontent.com/71320956/128612992-0c331aad-93c2-46d2-97a6-5ffe32c645da.PNG)
+![ResultRegiser](https://user-images.githubusercontent.com/71320956/131083301-c028f6b0-aef1-4eda-a506-fea45ac57e01.png)
 
 
 ### Login
 
-User Login by given _Name\Email_ and _Password_
+User Login by given _Username_ and _Password_
 
 __methods:__ `GET`, `POST`\
 __endpoint:__ `/users/login`
 
-![Login](https://user-images.githubusercontent.com/71320956/128613001-3d4da68d-239e-4a2c-9cb8-8ac8b78ef9a1.PNG)
+![Login](https://user-images.githubusercontent.com/71320956/131085044-e6f5d58e-ea7c-4c64-b22a-4974d39b1308.png)
 __CSRF attack on endpoint:__
 ````
 $ curl -X POST -F 'name_email=Hacker' -F'password=AAaa1212@!12' 
 http://127.0.0.1:5000/users/login
 ````
 __Result of attack:__\
-![HackerLogin](https://user-images.githubusercontent.com/71320956/128613003-aa2d78aa-4a79-451f-84d6-a0a72b0169df.PNG)
+![ResultLogin](https://user-images.githubusercontent.com/71320956/131083477-de7f2399-6bdb-4a78-a9b5-997f5c92fecb.png)
 
 ### Change Password
 
@@ -87,8 +88,7 @@ $ curl -X POST -F 'username=Hacker' -F 'email=yougot@HACKED.com'
 http://127.0.0.1:5000/users/change_password
 ````
 __Result of attack:__\
-![HackerChangePassword](https://user-images.githubusercontent.com/71320956/128613015-03a99a41-9c0f-45a7-9a0f-826468d10328.PNG)
-
+![ResultChangePassword](https://user-images.githubusercontent.com/71320956/131084746-01e2fa5d-c966-406f-a5be-6a1f1a1d4e51.png)
 
 ### Logout
 
@@ -136,3 +136,5 @@ $ curl -X POST -F 'upper=0' -F 'lower=0' -F 'digits=0'
 -F 'spec=0' -F 'use_dict=0' -F 'length=0' -F 'history=10' 
 -F 'tries=1000'  http://127.0.0.1:5000/admin/password_config
 ````
+__Result of attack:__\
+![ResultChangePassword](https://user-images.githubusercontent.com/71320956/131085277-0d0d257f-2e7e-4e15-a4d5-57a06e3adf1f.png)
