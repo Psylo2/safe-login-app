@@ -50,11 +50,10 @@ class RegisterForm(FlaskForm):
                                          "autocomplete": "on",
                                          "placeholder": "re-Password"},
                               validators=[validators.DataRequired(
-                                  message='Your re-Password is required'),
-                                  validators.EqualTo(
-                                      fieldname=password,
-                                      message='Password & re-Password dont match')])
+                                  message='Your re-Password is required')])
 
     def validate_re_password(self, field):
         if not Password.confirm_password(field.data):
             raise ValidationError('re-Password dont meet complex')
+
+

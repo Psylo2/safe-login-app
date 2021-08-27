@@ -24,6 +24,3 @@ class LoginForm(FlaskForm):
                                       "autocomplete": "on",
                                       "placeholder": "Password"})
 
-    def validate_password(self, field):
-        if not Password.confirm_password(field.data):
-            raise ValidationError('Password dont meet complex')

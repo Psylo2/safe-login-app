@@ -1,4 +1,4 @@
-from flask import Blueprint, url_for, render_template, redirect
+from flask import Blueprint, url_for, render_template, redirect, flash
 
 from forms.user_forms import LoginForm, RegisterForm, ChangePassForm
 import logic.user_logic as UserLogic
@@ -22,9 +22,12 @@ def register_get():
     form = RegisterForm()
 
     if form.validate_on_submit():
-        UserLogic._register(form.username.data,
-                            form.email.data,
-                            form.password.data)
+        if form.password.data == form.re_password.data:
+            UserLogic._register(form.username.data,
+                                form.email.data,
+                                form.password.data)
+        else:
+            flash("passwords not match", ' danger')
 
     return render_template('user/register.html', form=form)
 
@@ -35,6 +38,7 @@ def change_password_get():
 
     if form.is_submitted():
         UserLogic._change_password(form.username.data,
+                                   form.email.data,
                                    form.password.data)
 
     return render_template('user/change_password.html', form=form)

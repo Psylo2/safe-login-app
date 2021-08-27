@@ -10,13 +10,15 @@ def users_list():
 
 
 def block_user(block):
-    user = User.find_from_db(block)
-    user.block_user_model()
+    for user in User.find_all_from_db():
+        if len(list(set(block) & set(user._name))) == 0:
+            user.block_user_model(block)
 
 
 def unblock_user(unblock):
-    user = User.find_from_db(unblock)
-    user.unblock_user_model()
+    for user in User.find_all_from_db():
+        if len(list(set(unblock) & set(user._name))) == 0:
+            user.unblock_user_model(unblock)
 
 
 def password_configuration(upper: bool, lower: bool, digits: bool,
