@@ -43,7 +43,7 @@ def _register(username: str, email: str,
             if _decrypt_(username, user._name):
                 exists = True
         if not exists:
-            if Password.confirm_password(password):
+            if Password.confirm_password(password, update=False):
                 user = User(username, email, 0)
                 user.save_to_db(password)
 
@@ -64,12 +64,11 @@ def _change_password(username: str, email: str, password: str):
         users = User.find_all_from_db()
         for user in users:
             if _decrypt_(username, user._name):
-                if _decrypt_(email, user._email):
-                    if Password.confirm_password(password, username, update=True):
-                        Password._update_to_db(username,
-                                               password)
-                        flash('Password Changed!', 'danger')
-                        return redirect(url_for('users.login_get'))
+                if Password.confirm_password(password, username, update=True):
+                    Password._update_to_db(username,
+                                           password)
+                    flash('Password Changed!', 'danger')
+                    return redirect(url_for('users.login_get'))
         flash('User not Exists\nor\nPassword dont meet complexity!',
               'danger')
 

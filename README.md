@@ -10,9 +10,9 @@ __FRONTEND:__ _JS, HTML & CSS_
 
 __INTEGRATIONS:__ _Jinja2_
 
-Deployed over Docker, inorder to contain a safety lab environment\
+Deployed over Docker inorder to contain a safety lab environment
 
-_PLEASE TAKE NOTICE:_ __runs only with Chrome,Modzilla and Explorer.__ 
+_PLEASE TAKE NOTICE:_ __runs only with Chrome & Modzilla only__ 
 
 ## Endpoints
 
@@ -64,7 +64,7 @@ User Login by given _Username_ and _Password_
 __methods:__ `GET`, `POST`\
 __endpoint:__ `/users/login`
 
-![Login](https://user-images.githubusercontent.com/71320956/131085044-e6f5d58e-ea7c-4c64-b22a-4974d39b1308.png)
+![Login](https://user-images.githubusercontent.com/71320956/131092972-cf268437-3a2d-4ba8-8897-6eb36175858d.png)
 __CSRF attack on endpoint:__
 ````
 $ curl -X POST -F 'name_email=Hacker' -F'password=AAaa1212@!12' 

@@ -1,6 +1,7 @@
 from flask import request, url_for, redirect, flash, render_template, session
 
 from logic.user_logic import Password
+from models.password.password import PasswordConfig
 from models.user import User
 
 
@@ -13,7 +14,6 @@ def block_user(block):
     for user in User.find_all_from_db():
         if len(list(set(block) & set(user._name))) == 0:
             user.block_user_model(block)
-
 
 def unblock_user(unblock):
     for user in User.find_all_from_db():
@@ -32,7 +32,7 @@ def password_configuration(upper: bool, lower: bool, digits: bool,
         re += "\!\#\$\%\^\&\*\_\+\.\," if spec else ""
 
 
-        Password._set_config(length=length,
+        PasswordConfig._set_config(length=length,
                              regex=re,
                              history=history,
                              dictionary=use_dict,

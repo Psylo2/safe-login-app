@@ -20,12 +20,14 @@ class PasswordConfig:
 
     @classmethod
     def _check_dict(cls, new_password: str) -> bool:
-        if not cls._dict_password:
-            new_matcher = re.compile(r"^[^\[]+[A-Za-z0-9\!\@\#\$\%\^\&\*\_\+\.\,]+[^\]]$")
-            return True if new_matcher.match(new_password) else False
-        else:
-            new_matcher = re.compile(r"^[A-Za-z0-9\!\@\#\$\%\^\&\*\_\+\.\,]$")
-            return True if new_matcher.match(new_password) else False
+        if cls._dict_password:
+            print("dict mode: ON")
+            with open("utils\\dictionary.txt", "r") as file:
+                print(new_password)
+                print("true"if new_password in file.read() else "false")
+                return False if new_password in file.read() else True
+        return True
+
 
     @classmethod
     def _check_complex_and_len(cls, new_password: str) -> bool:
@@ -37,6 +39,7 @@ class PasswordConfig:
             list(set("\!\@\#\$\%\^\&\*\_\+\.\,") & set(cls._password_regex))) > 0 else ""
         regex += ".{" + f"{cls._length_of_password}" + ",}$"
         pattern = r"{a}".format(a=regex)
+        print(regex)
         username_matcher = re.compile(pattern)
         return True if username_matcher.match(new_password) else False
 
@@ -51,12 +54,15 @@ class PasswordConfig:
     @classmethod
     def _set_password_dict(cls, add: bool) -> None:
         cls._dict_password = add
+        print("Dict:", cls._dict_password)
+
 
     @classmethod
     def _set_password_complex(cls, new_regex: str) -> None:
         new_matcher = re.compile(r"(?:[\w][\-][\w])|(?:[+\!\@\#\$\%\^\&\*\_\+\.\,\\])")
         if new_matcher.match(new_regex):
             cls._password_regex = new_regex
+            print("Complex:", cls._password_regex)
 
     @classmethod
     def _set_config(cls, length: str, regex: str, history: str, dictionary: bool, tries: str) -> None:
@@ -65,6 +71,9 @@ class PasswordConfig:
         cls._number_of_history = int(history) if len(history) > 0 else cls._number_of_history
         cls._set_password_dict(add=dictionary)
         cls._number_of_try = int(tries) if len(tries) > 0 else 0
+        print("Length:", cls._length_of_password)
+        print("History:", cls._number_of_history)
+        print("Tries:", cls._number_of_try)
 
 
 class Password(PasswordConfig, Model):
@@ -112,12 +121,12 @@ class Password(PasswordConfig, Model):
 
         if not cls._check_complex_and_len(new_password):
             flag = True
-            ret += "[*] Password dont meet length or complexity.\n"
+            ret += "[*] Password dont meet complexity.\n"
         print("Complex ----> ", ret if ret != "" else "OK")
 
         if not cls._check_dict(new_password):
             flag = True
-            ret += "[*] Password dont met dict mode.\n"
+            ret += "[*] Password dont meet dict mode.\n"
         print("Dict ----> ", ret if ret != "" else "OK")
 
         try:

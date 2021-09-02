@@ -19,19 +19,14 @@ CREATE_PASSWORDS_TABLE = """CREATE TABLE IF NOT EXISTS passwords (
     password_10 BLOB,
     FOREIGN KEY(username) REFERENCES users(username)
 );"""
+INSERT_USER = "INSERT INTO users (username, email,  blocked) VALUES (%s, %s, %s)"
 
-INSERT_USER = "INSERT INTO users (username, email,  blocked) VALUES (?, ?, ?);"
-
-INSERT_PASSWORD = "INSERT INTO passwords (username, current_password, password_1, password_2, password_3, password_4, password_5, password_6, password_7, password_8, password_9, password_10) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+INSERT_PASSWORD = "INSERT INTO passwords (username, current_password, password_1, password_2, password_3, password_4, password_5, password_6, password_7, password_8, password_9, password_10) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
 
 SELECT_ALL_USERS = """SELECT * FROM users;"""
 
 SELECT_ALL_PASSWORDS = "SELECT * FROM passwords;"
 
-UPDATE_PASSWORD = "UPDATE passwords SET current_password = (?), password_1 = (?), password_2 = (?), password_3 = (?), password_4 = (?), password_5 = (?), password_6 = (?), password_7 = (?), password_8 = (?), password_9 = (?), password_10 = (?) WHERE username=(?);"
+UPDATE_PASSWORD = "UPDATE passwords SET current_password = (%s), password_1 = (%s), password_2 = (%s), password_3 = (%s), password_4 = (%s), password_5 = (%s), password_6 = (%s), password_7 = (%s), password_8 = (%s), password_9 = (%s), password_10 = (%s) WHERE username=(%s);"
 
-BLOCK_USER = "UPDATE users SET blocked = (?)  WHERE username = (?);"
-
-DROP_TABLE_USERS = "DROP TABLE users;"
-
-DROP_TABLE_PASSWORDS = "DROP TABLE passwords;"
+BLOCK_USER = "UPDATE users SET blocked = (%s)  WHERE username = (%s);"
