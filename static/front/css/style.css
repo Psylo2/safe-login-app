@@ -16,6 +16,10 @@ text-decoration: none; /* Отменяем подчеркивание у ссы�
 }
 a:hover { text-decoration: none; }
 body {
+  background-image: url("../res/img/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
   line-height: 1;
 }
 
@@ -178,8 +182,9 @@ align-items: center;
   border-radius: 30px;
 }
 .contactus--facebook {
-  background-image: url(../res/img/form_back.png);
+  /*background-image: url(../res/img/form_back.png);*/
   margin: 0 auto 0;
+  background-color:transparent;
 }
 .contactus--facebook-viev {
   display: flex;
@@ -201,7 +206,7 @@ align-items: center;
   background: #e9eff6;
   line-height: 40px;
   border-width: 0;
-  border-radius: 20px;
+  border-radius: 8px;
 }
 .contactus__inner-item:hover{
 color:orange;
@@ -246,7 +251,6 @@ color:orange;
   text-transform: uppercase;
   color: #fff;
   background: #1c62cd;
-  border-radius: 3px;
   padding: 10px 25px 10px;
   border: none;
   outline: none;
@@ -265,7 +269,6 @@ html{
 }
 /*# sourceMappingURL=style.css.map */
 .body {
-  background-image: url(../res/img/flag.svg);
   height: 100vh;
 }
 .body .carousel {
@@ -673,13 +676,12 @@ html{
 .list__header--decor{
   display: flex;
   justify-content: center;
-  border-bottom:solid 5px wheat ;
   margin-top: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 
 }
 .list__header-text--decor{
-color: #fff;
+color: white;
   font-weight: bold;
   font-size: 35px;
   margin-bottom: 5px;
@@ -715,6 +717,7 @@ color: #fff;
   flex-wrap: wrap;
   justify-content:space-between;
   width: 850px;
+  border:2px solid black;
 }
 .list-group-item-heading p{
 margin-bottom: 10px;
