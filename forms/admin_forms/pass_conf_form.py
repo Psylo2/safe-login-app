@@ -58,7 +58,7 @@ class PassConfForm(FlaskForm):
         if not _matcher.match(field.data):
             raise ValidationError('Invalid credentials for Length')
 
-    use_dict = BooleanField("[...]",
+    use_dict = BooleanField("Dictionary Mode",
                             render_kw={"class": "form__inner-wrapper5",
                                        "type": "checkbox",
                                        "value": 'false'},
