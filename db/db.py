@@ -10,8 +10,10 @@ from typing import List, Tuple, Union
 
 connection = mysql.connector.connect(host=os.environ.get('HOST'),
                                      user=os.environ.get('USER'),
-                                     passwd=os.environ.get('PASSWORD'),
-                                     database=os.environ.get('DB'))
+                                     password=os.environ.get('PASSWORD'),
+                                     database=os.environ.get('DB'),
+                                     port=os.environ.get('PORT')
+                                     )
 
 
 def create_tables() -> None:

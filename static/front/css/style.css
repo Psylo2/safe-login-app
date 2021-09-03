@@ -687,13 +687,16 @@ color: #fff;
 .list-group--decor{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start;
+  align-items: center;
 }
 .list-group-items--decor{
   display: flex;
   flex-direction: column;
   background-color: #fff;
   margin-left: 10px;
+  margin-bottom: 15px;
 }
 .button--block{
   width: 100%;
@@ -711,6 +714,7 @@ color: #fff;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content:space-between;
+  width: 850px;
 }
 .list-group-item-heading p{
 margin-bottom: 10px;
