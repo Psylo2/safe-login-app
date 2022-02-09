@@ -1,9 +1,13 @@
-from flask import Flask, render_template
-from flask_wtf.csrf import CSRFProtect
-import os
 from dotenv import load_dotenv
 
 load_dotenv(".env", verbose=True)
+
+from flask import Flask, render_template
+from flask_wtf.csrf import CSRFProtect
+
+from app_configuration import AppConfiguration
+
+from logic import UserLogic, AdminLogic
 
 from views.users import user_blueprint
 from views.admins import admin_blueprint
@@ -11,14 +15,15 @@ from views.admins import admin_blueprint
 app = Flask(__name__)
 csrf = CSRFProtect(app)
 
-app.config.update(SECRET_KEY=os.environ.get('APP_SECRET_KEY'),
-                  WTF_CSRF_SECRET_KEY=os.environ.get('SECRET_KEY_CSRF'),
-                  ADMIN=os.environ.get('ADMIN_NAME'))
+AppConfiguration(app=app)
 
 @app.get('/')
 def home():
     return render_template('home.html')
 
+
+user_blueprint.handler = UserLogic()
+admin_blueprint.handler = AdminLogic()
 
 app.register_blueprint(user_blueprint,
                        url_prefix="/users")
