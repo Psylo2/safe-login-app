@@ -66,9 +66,9 @@ def update_password(password: tuple) -> None:
         connection.commit()
 
 
-def get_headers(database: str) -> List:
+def get_headers(table: str) -> List:
     with connection.cursor(buffered=True) as conn:
-        conn.execute(f"select * from {database};")
+        conn.execute(f"select * from {table};")
         return list(map(lambda x: x[0], conn.description))
 
 
