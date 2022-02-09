@@ -65,15 +65,18 @@ class PasswordConfig:
             print("Complex:", cls._password_regex)
 
     @classmethod
-    def _set_config(cls, length: str, regex: str, history: str, dictionary: bool, tries: str) -> None:
-        cls._length_of_password = int(length) if len(length) > 0 else cls._length_of_password
-        cls._set_password_complex(new_regex=regex)
-        cls._number_of_history = int(history) if len(history) > 0 else cls._number_of_history
-        cls._set_password_dict(add=dictionary)
-        cls._number_of_try = int(tries) if len(tries) > 0 else 0
-        print("Length:", cls._length_of_password)
-        print("History:", cls._number_of_history)
-        print("Tries:", cls._number_of_try)
+    def set_config(cls, length: str, regex: str, history: str, dictionary: bool, tries: str) -> bool:
+        try:
+            cls._length_of_password = int(length) if len(length) > 0 else cls._length_of_password
+            cls._set_password_complex(new_regex=regex)
+            cls._number_of_history = int(history) if len(history) > 0 else cls._number_of_history
+            cls._set_password_dict(add=dictionary)
+            cls._number_of_try = int(tries) if len(tries) > 0 else 0
+            return True
+
+        except Exception:
+            return False
+
 
 
 class Password(PasswordConfig, Model):
